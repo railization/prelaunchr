@@ -64,6 +64,7 @@ Prelaunchr::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.default_url_options = { :host => 'www.example.com' }
+  ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       :address              => "smtp.mandrillapp.com",
       :port                 => "587",
