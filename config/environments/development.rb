@@ -43,6 +43,19 @@ Prelaunchr::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.asset_host = "localhost"
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      :address              => "smtp.mandrillapp.com",
+      :port                 => "587",
+      :domain               => 'heroku.com',
+      :user_name            => "mike@gowebsuite.com",
+      :password             => "hI-MX9oG1MJL_FjX8f12kAhI-MX9oG1MJL_FjX8f12kA",
+      :authentication       => "plain",
+      :enable_starttls_auto => true
+  }
+
 
   # For mailer configs
   config.action_mailer.perform_deliveries = false
