@@ -70,9 +70,8 @@ Prelaunchr::Application.configure do
       :port                 => "587",
       :domain               => 'heroku.com',
       :user_name            => "mike@gowebsuite.com",
-      :password             => "hI-MX9oG1MJL_FjX8f12kAhI-MX9oG1MJL_FjX8f12kA",
-      :authentication       => "plain",
-      :enable_starttls_auto => true
+      :password             => "hI-MX9oG1MJL_FjX8f12kA",
+      :authentication       => :plain,
   }
 
   # Log the query plan for queries taking more than this (works
