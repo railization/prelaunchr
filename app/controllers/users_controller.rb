@@ -15,13 +15,12 @@ class UsersController < ApplicationController
     def create
         # Get user to see if they have already signed up
         @user = User.find_by_email(params[:user][:email]);
-        UserMailer.signup_email(@user).deliver
         # If user doesnt exist, make them, and attach referrer
         if @user.nil?
 
             cur_ip = IpAddress.find_by_address(request.env['HTTP_X_FORWARDED_FOR'])
 
-            UserMailer.signup_email(@user).deliver
+
 
             if !cur_ip
                 cur_ip = IpAddress.create(
@@ -38,6 +37,8 @@ class UsersController < ApplicationController
             end
 
             @user = User.new(:email => params[:user][:email])
+
+            UserMailer.signup_email(@user).deliver
 
             @referred_by = User.find_by_referral_code(cookies[:h_ref])
 
