@@ -75,7 +75,7 @@ Prelaunchr::Application.configure do
       :authentication       => "login",
       :enable_starttls_auto => true
   }
-  ActionMailer::Base.default_charset= "utf-8"
+  
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
