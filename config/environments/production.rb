@@ -66,16 +66,16 @@ Prelaunchr::Application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.default_url_options = { :host => 'web-suite.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
       :address              => "smtp.mandrillapp.com",
-      :port                 => "587",
-      :domain               => 'gowebsuite.com',
+      :port                 => 587,
       :user_name            => "mike@gowebsuite.com",
       :password             => "hI-MX9oG1MJL_FjX8f12kA",
-      :authentication       => :plain,
+      :authentication       => "login",
       :enable_starttls_auto => true
   }
+  ActionMailer::Base.default_charset= "utf-8"
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
