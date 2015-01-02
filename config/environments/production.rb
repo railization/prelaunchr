@@ -65,17 +65,20 @@ Prelaunchr::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'web-suite.herokuapp.com' }
+
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       :address              => "smtp.mandrillapp.com",
-      :port                 => 587,
+      :port                 => "587",
+      :domain               => "heroku.com",
       :user_name            => "mike@gowebsuite.com",
       :password             => "hI-MX9oG1MJL_FjX8f12kA",
-      :authentication       => "login",
+      :authentication       => "plain",
       :enable_starttls_auto => true
   }
-  
+
+
+
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
